@@ -22,3 +22,8 @@ abstract class DarkColors {
   static const background = Color(0xFF1B1E1F);
   static const card = AppColors.cardDark;
 }
+
+abstract class AppTheme {
+  static const accentColor = AppColors.accent;
+  static const visualDensity = VisualDensity.adaptivePlatformsDensity;
+}
