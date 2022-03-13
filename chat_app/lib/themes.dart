@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 abstract class AppColors {
   static const secondary = Color(0xFF3B76F6);
@@ -25,5 +26,37 @@ abstract class DarkColors {
 
 abstract class AppTheme {
   static const accentColor = AppColors.accent;
-  static const visualDensity = VisualDensity.adaptivePlatformsDensity;
+  static final visualDensity = VisualDensity.adaptivePlatformDensity;
+
+//light theme and its settings
+  static ThemeData light() => ThemeData(
+        // final Color secondary: accentColor,
+        brightness: Brightness.light,
+        visualDensity: visualDensity,
+        textTheme: GoogleFonts.mulishTextTheme()
+            .apply(bodyColor: AppColors.textDark),
+        backgroundColor: LightColors.background,
+        scaffoldBackgroundColor: LightColors.background,
+        cardColor: LightColors.card,
+        primaryTextTheme: const TextTheme(
+          headline6: TextStyle(color: AppColors.textDark),
+        ),
+        iconTheme: const IconThemeData(color: AppColors.iconDark),
+      );
+
+//dark theme and its settings
+static ThemeData dark() => ThemeData(
+  // final const secondary: accentColor,
+  brightness: Brightness.dark,
+  visualDensity: visualDensity,
+        textTheme: GoogleFonts.interTextTheme()
+            .apply(bodyColor: AppColors.textLight),
+        backgroundColor: DarkColors.background,
+        scaffoldBackgroundColor: DarkColors.background,
+        cardColor: DarkColors.card,
+        primaryTextTheme: const TextTheme(
+          headline6: TextStyle(color: AppColors.textLight),
+        ),
+        iconTheme: const IconThemeData(color: AppColors.iconLight),
+      );
 }
